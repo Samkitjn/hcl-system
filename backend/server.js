@@ -10,6 +10,7 @@ const messRoutes = require("./routes/messRoutes");
 const leaveRoutes = require("./routes/leaveRoutes");
 const maintenanceRoutes = require("./routes/maintenanceRoutes");
 const communityRoutes = require("./routes/communityRoutes");
+const roommateRoutes = require("./routes/roommateRoutes");
 
 const app = express();
 
@@ -45,6 +46,7 @@ app.use("/api/mess", messRoutes);
 app.use("/api/leave", leaveRoutes);
 app.use("/api/maintenance", maintenanceRoutes);
 app.use("/api/community", communityRoutes);
+app.use("/api/roommate", roommateRoutes);
 
 const PORT = process.env.PORT || 5000;
 
