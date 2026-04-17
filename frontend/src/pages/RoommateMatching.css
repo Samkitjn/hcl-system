@@ -1,0 +1,90 @@
+.roommate-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.roommate-hero {
+  padding: 20px;
+  border-radius: 16px;
+  background: #f8fafc;
+}
+
+.roommate-heading {
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.roommate-subtext {
+  color: #6b7280;
+}
+
+.roommate-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.roommate-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  border: 1px solid #e5e7eb;
+}
+
+.roommate-card-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.roommate-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.roommate-form input {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+}
+
+.roommate-btn {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background: #0ea5a4;
+  color: white;
+  cursor: pointer;
+}
+
+.roommate-btn.small {
+  padding: 6px 10px;
+  font-size: 12px;
+}
+
+.roommate-message {
+  font-size: 13px;
+}
+
+.roommate-match {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.roommate-name {
+  font-weight: 600;
+}
+
+.roommate-id {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.roommate-empty {
+  color: #6b7280;
+}
