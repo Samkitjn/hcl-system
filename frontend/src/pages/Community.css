@@ -1,0 +1,128 @@
+.community-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.community-hero {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border-radius: 18px;
+  padding: 24px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.community-heading {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 8px;
+}
+
+.community-subtext {
+  color: #6b7280;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.community-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 22px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.community-card-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 14px;
+}
+
+.community-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.community-form textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  resize: vertical;
+}
+
+.community-form textarea:focus {
+  outline: none;
+  border-color: #0ea5a4;
+  box-shadow: 0 0 0 3px rgba(14, 165, 164, 0.12);
+}
+
+.community-btn {
+  align-self: flex-start;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 16px;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.community-message {
+  font-size: 14px;
+}
+
+.community-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.community-post {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 16px;
+  border: 1px solid #e5e7eb;
+}
+
+.community-post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.community-author {
+  font-weight: 600;
+  color: #111827;
+}
+
+.community-student-id {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.community-date {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.community-content {
+  color: #374151;
+  font-size: 14px;
+}
+
+.community-empty {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.community-page.student .community-btn {
+  background: #0ea5a4;
+}
+
+.community-page.management .community-btn {
+  background: #1e3a8a;
+}
