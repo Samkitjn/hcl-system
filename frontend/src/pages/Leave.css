@@ -1,0 +1,249 @@
+.leave-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.leave-hero {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border-radius: 18px;
+  padding: 24px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.leave-heading {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 8px;
+}
+
+.leave-subtext {
+  color: #6b7280;
+  font-size: 15px;
+  line-height: 1.6;
+  max-width: 720px;
+}
+
+.leave-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 20px;
+}
+
+.leave-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 22px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.leave-card-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 18px;
+}
+
+.leave-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.leave-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.leave-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.leave-form-group label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.leave-form-group input,
+.leave-form-group textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+  background: #ffffff;
+  transition: all 0.3s ease;
+  resize: vertical;
+}
+
+.leave-form-group input:focus,
+.leave-form-group textarea:focus {
+  outline: none;
+  border-color: #0ea5a4;
+  box-shadow: 0 0 0 3px rgba(14, 165, 164, 0.12);
+}
+
+.leave-btn {
+  border: none;
+  border-radius: 10px;
+  padding: 12px 16px;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.leave-message {
+  margin-top: 4px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.leave-summary-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.leave-summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: #f9fafb;
+  border: 1px solid #edf0f3;
+}
+
+.leave-summary-item span {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.leave-summary-item strong {
+  color: #111827;
+  font-size: 18px;
+}
+
+.leave-empty {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.leave-table-card {
+  padding-top: 20px;
+}
+
+.leave-table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.leave-table-wrapper {
+  overflow-x: auto;
+}
+
+.leave-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.leave-table thead th {
+  text-align: left;
+  padding: 14px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #6b7280;
+  background: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.leave-table tbody td {
+  padding: 16px;
+  border-bottom: 1px solid #eef2f7;
+  color: #374151;
+  font-size: 14px;
+}
+
+.leave-status {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.leave-status.pending {
+  background: rgba(245, 158, 11, 0.14);
+  color: #b45309;
+}
+
+.leave-status.approved {
+  background: rgba(16, 185, 129, 0.14);
+  color: #047857;
+}
+
+.leave-status.rejected {
+  background: rgba(239, 68, 68, 0.14);
+  color: #b91c1c;
+}
+
+.leave-page.student .leave-btn {
+  background: #0ea5a4;
+}
+
+.leave-page.student .leave-btn:hover {
+  background: #0b8f8d;
+}
+
+.leave-page.student .leave-message {
+  color: #0ea5a4;
+}
+
+.leave-page.student .leave-hero {
+  background: linear-gradient(135deg, #ffffff 0%, #f0fdfa 100%);
+}
+
+.leave-page.management .leave-btn {
+  background: #1e3a8a;
+}
+
+.leave-page.management .leave-btn:hover {
+  background: #172e6e;
+}
+
+.leave-page.management .leave-message {
+  color: #1e3a8a;
+}
+
+.leave-page.management .leave-hero {
+  background: linear-gradient(135deg, #ffffff 0%, #eff6ff 100%);
+}
+
+.leave-page.management .leave-form-group input:focus,
+.leave-page.management .leave-form-group textarea:focus {
+  border-color: #1e3a8a;
+  box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.12);
+}
+
+@media (max-width: 900px) {
+  .leave-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .leave-form-row {
+    grid-template-columns: 1fr;
+  }
+}
