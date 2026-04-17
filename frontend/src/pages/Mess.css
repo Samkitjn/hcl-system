@@ -1,0 +1,223 @@
+.mess-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.mess-hero {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border-radius: 18px;
+  padding: 24px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.mess-heading {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 8px;
+}
+
+.mess-subtext {
+  color: #6b7280;
+  font-size: 15px;
+  line-height: 1.6;
+  max-width: 720px;
+}
+
+.mess-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.mess-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 22px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.mess-card-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 18px;
+}
+
+.mess-charge-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.mess-charge-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: #f9fafb;
+  border: 1px solid #edf0f3;
+}
+
+.mess-charge-month {
+  font-size: 15px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 4px;
+}
+
+.mess-charge-status {
+  font-size: 13px;
+  color: #6b7280;
+  text-transform: capitalize;
+}
+
+.mess-charge-amount {
+  font-size: 16px;
+  color: #111827;
+}
+
+.mess-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mess-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mess-form-group label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.mess-form-group input,
+.mess-form-group textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+  background: #ffffff;
+  transition: all 0.3s ease;
+  resize: vertical;
+}
+
+.mess-form-group input:focus,
+.mess-form-group textarea:focus {
+  outline: none;
+  border-color: #0ea5a4;
+  box-shadow: 0 0 0 3px rgba(14, 165, 164, 0.12);
+}
+
+.mess-btn {
+  border: none;
+  border-radius: 10px;
+  padding: 12px 16px;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.mess-message {
+  margin-top: 4px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.mess-empty {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.mess-table-card {
+  padding-top: 20px;
+}
+
+.mess-table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mess-table-wrapper {
+  overflow-x: auto;
+}
+
+.mess-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.mess-table thead th {
+  text-align: left;
+  padding: 14px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #6b7280;
+  background: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.mess-table tbody td {
+  padding: 16px;
+  border-bottom: 1px solid #eef2f7;
+  color: #374151;
+  font-size: 14px;
+}
+
+.mess-page.student .mess-btn {
+  background: #0ea5a4;
+}
+
+.mess-page.student .mess-btn:hover {
+  background: #0b8f8d;
+}
+
+.mess-page.student .mess-message {
+  color: #0ea5a4;
+}
+
+.mess-page.student .mess-hero {
+  background: linear-gradient(135deg, #ffffff 0%, #f0fdfa 100%);
+}
+
+.mess-page.management .mess-btn {
+  background: #1e3a8a;
+}
+
+.mess-page.management .mess-btn:hover {
+  background: #172e6e;
+}
+
+.mess-page.management .mess-message {
+  color: #1e3a8a;
+}
+
+.mess-page.management .mess-hero {
+  background: linear-gradient(135deg, #ffffff 0%, #eff6ff 100%);
+}
+
+.mess-page.management .mess-form-group input:focus,
+.mess-page.management .mess-form-group textarea:focus {
+  border-color: #1e3a8a;
+  box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.12);
+}
+
+@media (max-width: 900px) {
+  .mess-grid {
+    grid-template-columns: 1fr;
+  }
+}
