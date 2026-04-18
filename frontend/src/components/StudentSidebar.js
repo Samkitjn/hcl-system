@@ -1,9 +1,10 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Sidebar.css";
 
-const StudentSidebar = () => {
+const StudentSidebar = ({ mobileMenuOpen, setMobileMenuOpen }) => {
   const location = useLocation();
+  const navigate = useNavigate();
 
   const menuItems = [
     { name: "Dashboard", path: "/student/dashboard" },
@@ -15,24 +16,44 @@ const StudentSidebar = () => {
     { name: "Roommate Matching", path: "/student/roommate-matching" },
   ];
 
-  return (
-    <div className="sidebar">
-      <h2 className="sidebar-logo">Student Portal</h2>
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    localStorage.removeItem("role");
+    setMobileMenuOpen(false);
+    navigate("/");
+  };
 
-      <nav className="sidebar-nav">
-        {menuItems.map((item) => (
-          <Link
-            key={item.path}
-            to={item.path}
-            className={`sidebar-link ${
-              location.pathname === item.path ? "active" : ""
-            }`}
-          >
-            {item.name}
-          </Link>
-        ))}
-      </nav>
-    </div>
+  return (
+    <>
+      <div
+        className={`sidebar-overlay ${mobileMenuOpen ? "show" : ""}`}
+        onClick={() => setMobileMenuOpen(false)}
+      />
+
+      <div className={`sidebar ${mobileMenuOpen ? "mobile-open" : ""}`}>
+        <h2 className="sidebar-logo">Student Portal</h2>
+
+        <nav className="sidebar-nav">
+          {menuItems.map((item) => (
+            <Link
+              key={item.path}
+              to={item.path}
+              onClick={() => setMobileMenuOpen(false)}
+              className={`sidebar-link ${
+                location.pathname === item.path ? "active" : ""
+              }`}
+            >
+              {item.name}
+            </Link>
+          ))}
+        </nav>
+
+        <button className="sidebar-logout-btn" onClick={handleLogout}>
+          Logout
+        </button>
+      </div>
+    </>
   );
 };
 

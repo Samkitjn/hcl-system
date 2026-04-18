@@ -4,17 +4,24 @@
   background: #2d2d2d;
   color: white;
   padding: 24px 18px;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
 }
 
 .sidebar-logo {
   font-size: 24px;
   margin-bottom: 30px;
+  line-height: 1.2;
 }
 
 .sidebar-nav {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  flex: 1;
 }
 
 .sidebar-link {
@@ -23,6 +30,8 @@
   padding: 12px 14px;
   border-radius: 8px;
   transition: 0.3s;
+  display: block;
+  word-break: break-word;
 }
 
 .sidebar-link:hover {
@@ -38,4 +47,90 @@
 .dashboard-layout.management .sidebar-link.active {
   background: #1e3a8a;
   color: white;
+}
+
+.sidebar-logout-btn {
+  display: none;
+  border: none;
+  padding: 12px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  color: white;
+  margin-top: 20px;
+}
+
+.dashboard-layout.student .sidebar-logout-btn {
+  background: #0ea5a4;
+}
+
+.dashboard-layout.student .sidebar-logout-btn:hover {
+  background: #0b8f8d;
+}
+
+.dashboard-layout.management .sidebar-logout-btn {
+  background: #1e3a8a;
+}
+
+.dashboard-layout.management .sidebar-logout-btn:hover {
+  background: #172e6e;
+}
+
+.sidebar-overlay {
+  display: none;
+}
+
+@media (max-width: 1100px) {
+  .sidebar {
+    width: 220px;
+    padding: 20px 14px;
+  }
+
+  .sidebar-logo {
+    font-size: 20px;
+    margin-bottom: 22px;
+  }
+
+  .sidebar-link {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 260px;
+    height: 100vh;
+    min-height: 100vh;
+    transform: translateX(-100%);
+    padding: 20px 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  }
+
+  .sidebar.mobile-open {
+    transform: translateX(0);
+  }
+
+  .sidebar-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+  }
+
+  .sidebar-overlay.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .sidebar-logout-btn {
+    display: block;
+  }
 }
