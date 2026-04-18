@@ -22,12 +22,14 @@ import CommunityManagement from "./pages/CommunityManagement";
 import StudentLayout from "./layouts/StudentLayout";
 import ManagementLayout from "./layouts/ManagementLayout";
 import RoleProtectedRoute from "./components/RoleProtectedRoute";
+import Register from "./pages/Register";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Login />} />
+        <Route path="/register" element={<Register />} />
 
         <Route
           path="/student"

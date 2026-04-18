@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import InteractiveShapes from "./AnimatedShapes";
 import "../styles/Login.css";
+
 
 const Login = () => {
   const navigate = useNavigate();
@@ -144,9 +145,13 @@ const Login = () => {
           </form>
 
           <p className="signup-text">
-            {role === "student"
-              ? "Student access portal"
-              : "Management access portal"}
+            {role === "student" ? (
+              <>
+                Do not have an account? <Link to="/register">Register</Link>
+              </>
+            ) : (
+              "Management access portal"
+            )}
           </p>
         </div>
       </div>
