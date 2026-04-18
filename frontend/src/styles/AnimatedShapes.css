@@ -81,3 +81,120 @@
   border-top: 10px solid #000000;
   margin-top: 4px;
 }
+
+@media (max-width: 768px) {
+  .shape.purple {
+    width: 70px;
+    height: 170px;
+  }
+
+  .shape.orange {
+    width: 130px;
+    height: 85px;
+  }
+
+  .shape.black {
+    width: 60px;
+    height: 120px;
+  }
+
+  .shape.yellow {
+    width: 60px;
+    height: 95px;
+  }
+
+  .eyes {
+    gap: 6px;
+    margin-top: 10px;
+  }
+
+  .eye {
+    width: 12px;
+    height: 12px;
+  }
+
+  .pupil {
+    width: 6px;
+    height: 6px;
+  }
+}
+
+@media (max-width: 768px) {
+  .shapes-container {
+    align-items: flex-end;
+    justify-content: center;
+    height: 240px;
+    padding: 10px 12px 0;
+  }
+
+  .shape {
+    bottom: 12px;
+    padding-top: 8px;
+  }
+
+  .shape.purple {
+    width: 70px;
+    height: 170px;
+  }
+
+  .shape.orange {
+    width: 130px;
+    height: 82px;
+  }
+
+  .shape.black {
+    width: 58px;
+    height: 118px;
+  }
+
+  .shape.yellow {
+    width: 58px;
+    height: 95px;
+  }
+
+  .eyes {
+    gap: 6px;
+    margin-top: 10px;
+  }
+
+  .eye {
+    width: 12px;
+    height: 12px;
+  }
+
+  .pupil {
+    width: 6px;
+    height: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .shapes-container {
+    height: 200px;
+    padding: 8px 10px 0;
+  }
+
+  .shape {
+    bottom: 8px;
+  }
+
+  .shape.purple {
+    width: 60px;
+    height: 145px;
+  }
+
+  .shape.orange {
+    width: 112px;
+    height: 70px;
+  }
+
+  .shape.black {
+    width: 50px;
+    height: 100px;
+  }
+
+  .shape.yellow {
+    width: 50px;
+    height: 82px;
+  }
+}
