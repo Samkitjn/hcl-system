@@ -27,37 +27,43 @@ const Community = () => {
   }, []);
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setSubmitting(true);
-    setMessage("");
+  e.preventDefault();
+  setSubmitting(true);
+  setMessage("");
 
-    try {
-      const response = await fetch("http://localhost:5000/api/community/post", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          student_id: user.id,
-          content,
-        }),
-      });
+  if (!content.trim()) {
+    setMessage("Post content cannot be empty.");
+    setSubmitting(false);
+    return;
+  }
 
-      const data = await response.json();
+  try {
+    const response = await fetch("http://localhost:5000/api/community/post", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        student_id: user.id,
+        content: content.trim(),
+      }),
+    });
 
-      if (data.success) {
-        setMessage("Post created successfully.");
-        setContent("");
-        fetchPosts();
-      } else {
-        setMessage(data.message || "Failed to create post.");
-      }
-    } catch (error) {
-      setMessage("Server error while creating post.");
-    } finally {
-      setSubmitting(false);
+    const data = await response.json();
+
+    if (data.success) {
+      setMessage("Post created successfully.");
+      setContent("");
+      fetchPosts();
+    } else {
+      setMessage(data.message || "Failed to create post.");
     }
-  };
+  } catch (error) {
+    setMessage("Server error while creating post.");
+  } finally {
+    setSubmitting(false);
+  }
+};
 
   useEffect(() => {
     fetchPosts();
