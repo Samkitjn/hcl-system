@@ -31,41 +31,47 @@ const Maintenance = () => {
   }, [user?.id]);
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setSubmitting(true);
-    setMessage("");
+  e.preventDefault();
+  setSubmitting(true);
+  setMessage("");
 
-    try {
-      const response = await fetch("http://localhost:5000/api/maintenance/create", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          student_id: user.id,
-          issue_type: issueType,
-          description,
-          room_number: roomNumber,
-        }),
-      });
+  if (!issueType.trim() || !roomNumber.trim() || !description.trim()) {
+    setMessage("All fields are required.");
+    setSubmitting(false);
+    return;
+  }
 
-      const data = await response.json();
+  try {
+    const response = await fetch("http://localhost:5000/api/maintenance/create", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        student_id: user.id,
+        issue_type: issueType.trim(),
+        description: description.trim(),
+        room_number: roomNumber.trim(),
+      }),
+    });
 
-      if (data.success) {
-        setMessage("Maintenance request submitted successfully.");
-        setIssueType("");
-        setDescription("");
-        setRoomNumber("");
-        fetchRequests();
-      } else {
-        setMessage(data.message || "Failed to submit maintenance request.");
-      }
-    } catch (error) {
-      setMessage("Server error while submitting maintenance request.");
-    } finally {
-      setSubmitting(false);
+    const data = await response.json();
+
+    if (data.success) {
+      setMessage("Maintenance request submitted successfully.");
+      setIssueType("");
+      setDescription("");
+      setRoomNumber("");
+      fetchRequests();
+    } else {
+      setMessage(data.message || "Failed to submit maintenance request.");
     }
-  };
+  } catch (error) {
+    setMessage("Server error while submitting maintenance request.");
+  } finally {
+    setSubmitting(false);
+  }
+};
 
   useEffect(() => {
     if (user?.id) {
