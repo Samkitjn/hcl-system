@@ -1,9 +1,18 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./Header.css";
 
 const Header = ({ mobileMenuOpen, setMobileMenuOpen }) => {
+  const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem("user"));
   const role = localStorage.getItem("role") || "student";
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    localStorage.removeItem("role");
+    navigate("/");
+  };
 
   return (
     <div className="header">
@@ -30,6 +39,10 @@ const Header = ({ mobileMenuOpen, setMobileMenuOpen }) => {
           </p>
         </div>
       </div>
+
+      <button className="logout-btn desktop-logout-btn" onClick={handleLogout}>
+        Logout
+      </button>
     </div>
   );
 };
