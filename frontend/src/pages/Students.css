@@ -1,0 +1,169 @@
+.students-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.students-hero {
+  background: linear-gradient(135deg, #ffffff 0%, #eff6ff 100%);
+  border-radius: 18px;
+  padding: 24px;
+  border: 1px solid #dbeafe;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.students-heading {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 8px;
+}
+
+.students-subtext {
+  color: #6b7280;
+  font-size: 15px;
+  line-height: 1.6;
+  max-width: 720px;
+}
+
+.students-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 22px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.students-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.students-card-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.students-count {
+  min-width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background: #1e3a8a;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.students-message {
+  margin-bottom: 14px;
+  padding: 12px;
+  border-radius: 10px;
+  background: #eff6ff;
+  color: #1e3a8a;
+  font-size: 14px;
+  border-left: 3px solid #1e3a8a;
+}
+
+.students-empty {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.students-table-wrapper {
+  overflow-x: auto;
+}
+
+.students-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.students-table thead th {
+  text-align: left;
+  padding: 14px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #6b7280;
+  background: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.students-table tbody td {
+  padding: 16px;
+  border-bottom: 1px solid #eef2f7;
+  color: #374151;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+.student-badge {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.student-badge.preloaded {
+  background: rgba(30, 58, 138, 0.12);
+  color: #1e3a8a;
+}
+
+.student-badge.normal {
+  background: rgba(59, 130, 246, 0.12);
+  color: #1d4ed8;
+}
+
+.approve-btn {
+  border: none;
+  border-radius: 8px;
+  padding: 10px 14px;
+  background: #1e3a8a;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.approve-btn:hover {
+  background: #172e6e;
+}
+
+@media (max-width: 768px) {
+  .students-page {
+    gap: 18px;
+  }
+
+  .students-hero,
+  .students-card {
+    padding: 16px;
+  }
+
+  .students-heading {
+    font-size: 22px;
+  }
+
+  .students-subtext {
+    font-size: 14px;
+  }
+
+  .students-table thead th,
+  .students-table tbody td {
+    padding: 12px;
+    font-size: 13px;
+  }
+
+  .approve-btn {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+}
