@@ -47,38 +47,52 @@ const Mess = () => {
   }, [user?.id]);
 
   const handleFeedbackSubmit = async (e) => {
-    e.preventDefault();
-    setSubmitting(true);
-    setMessage("");
+  e.preventDefault();
+  setSubmitting(true);
+  setMessage("");
 
-    try {
-      const response = await fetch("http://localhost:5000/api/mess/feedback", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          student_id: user.id,
-          feedback_text: feedbackText,
-          rating: Number(rating),
-        }),
-      });
+  if (!feedbackText.trim()) {
+    setMessage("Feedback cannot be empty.");
+    setSubmitting(false);
+    return;
+  }
 
-      const data = await response.json();
+  const numericRating = Number(rating);
 
-      if (data.success) {
-        setMessage("Feedback submitted successfully.");
-        setFeedbackText("");
-        setRating("");
-      } else {
-        setMessage(data.message || "Failed to submit feedback.");
-      }
-    } catch (error) {
-      setMessage("Server error while submitting feedback.");
-    } finally {
-      setSubmitting(false);
+  if (!numericRating || numericRating < 1 || numericRating > 5) {
+    setMessage("Please enter a valid rating from 1 to 5.");
+    setSubmitting(false);
+    return;
+  }
+
+  try {
+    const response = await fetch("http://localhost:5000/api/mess/feedback", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        student_id: user.id,
+        feedback_text: feedbackText.trim(),
+        rating: numericRating,
+      }),
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      setMessage("Feedback submitted successfully.");
+      setFeedbackText("");
+      setRating("");
+    } else {
+      setMessage(data.message || "Failed to submit feedback.");
     }
-  };
+  } catch (error) {
+    setMessage("Server error while submitting feedback.");
+  } finally {
+    setSubmitting(false);
+  }
+};
 
   useEffect(() => {
   if (user?.id) {
