@@ -34,65 +34,90 @@ const RoommateMatching = () => {
   }, [user?.id]);
 
   const handleSavePreferences = async (e) => {
-    e.preventDefault();
-    setSaving(true);
-    setMessage("");
+  e.preventDefault();
+  setSaving(true);
+  setMessage("");
 
-    try {
-      const response = await fetch(
-        "http://localhost:5000/api/roommate/preferences",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            student_id: user.id,
-            ...preferences,
-          }),
-        }
-      );
-
-      const data = await response.json();
-
-      if (data.success) {
-        setMessage("Preferences saved successfully.");
-        fetchMatches();
-      } else {
-        setMessage(data.message || "Failed to save preferences.");
-      }
-    } catch (error) {
-      setMessage("Server error while saving preferences.");
-    } finally {
-      setSaving(false);
-    }
+  const cleaned = {
+    sleep_schedule: preferences.sleep_schedule.trim(),
+    study_habit: preferences.study_habit.trim(),
+    cleanliness_level: preferences.cleanliness_level.trim(),
+    smoking_preference: preferences.smoking_preference.trim(),
   };
+
+  if (
+    !cleaned.sleep_schedule ||
+    !cleaned.study_habit ||
+    !cleaned.cleanliness_level ||
+    !cleaned.smoking_preference
+  ) {
+    setMessage("All preference fields are required.");
+    setSaving(false);
+    return;
+  }
+
+  try {
+    const response = await fetch(
+      "http://localhost:5000/api/roommate/preferences",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          student_id: user.id,
+          ...cleaned,
+        }),
+      }
+    );
+
+    const data = await response.json();
+
+    if (data.success) {
+      setMessage("Preferences saved successfully.");
+      fetchMatches();
+    } else {
+      setMessage(data.message || "Failed to save preferences.");
+    }
+  } catch (error) {
+    setMessage("Server error while saving preferences.");
+  } finally {
+    setSaving(false);
+  }
+};
 
   const handleSendRequest = async (toId) => {
-    try {
-      const response = await fetch(
-        "http://localhost:5000/api/roommate/request",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            from_student_id: user.id,
-            to_student_id: toId,
-          }),
-        }
-      );
+  if (!toId || Number(toId) === Number(user.id)) {
+    setMessage("Invalid roommate request.");
+    return;
+  }
 
-      const data = await response.json();
-
-      if (data.success) {
-        alert("Request sent successfully");
+  try {
+    const response = await fetch(
+      "http://localhost:5000/api/roommate/request",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          from_student_id: user.id,
+          to_student_id: toId,
+        }),
       }
-    } catch (error) {
-      alert("Error sending request");
+    );
+
+    const data = await response.json();
+
+    if (data.success) {
+      setMessage("Roommate request sent successfully.");
+    } else {
+      setMessage(data.message || "Failed to send roommate request.");
     }
-  };
+  } catch (error) {
+    setMessage("Server error while sending roommate request.");
+  }
+};
 
   useEffect(() => {
     fetchMatches();
