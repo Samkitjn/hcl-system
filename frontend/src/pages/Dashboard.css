@@ -8,17 +8,17 @@
   display: flex;
   justify-content: space-between;
   gap: 20px;
-  background: linear-gradient(135deg, #ffffff 0%, #f7f5ff 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #f0fdfa 100%);
   border-radius: 18px;
   padding: 24px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-  border: 1px solid #ece8ff;
+  border: 1px solid #dff7f4;
 }
 
 .dashboard-heading {
   font-size: 30px;
   font-weight: 700;
-  color: #2d2d2d;
+  color: #1f2937;
   margin-bottom: 8px;
 }
 
@@ -68,13 +68,14 @@
 
 .stat-value {
   font-size: 28px;
-  color: #2d2d2d;
+  color: #1f2937;
   margin-bottom: 8px;
 }
 
 .stat-subtitle {
   color: #666;
   font-size: 14px;
+  line-height: 1.5;
 }
 
 .dashboard-bottom-grid {
@@ -93,15 +94,76 @@
 
 .panel-title {
   font-size: 18px;
-  color: #2d2d2d;
+  color: #1f2937;
   margin-bottom: 16px;
 }
 
-.panel-list {
-  margin: 0;
-  padding-left: 18px;
-  color: #555;
-  line-height: 1.9;
+.panel-empty {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.activity-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: #f9fafb;
+  border: 1px solid #edf0f3;
+}
+
+.activity-type {
+  font-size: 12px;
+  font-weight: 700;
+  color: #0ea5a4;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  letter-spacing: 0.4px;
+}
+
+.activity-text {
+  color: #374151;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.activity-status {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+.activity-status.pending {
+  background: rgba(245, 158, 11, 0.14);
+  color: #b45309;
+}
+
+.activity-status.approved,
+.activity-status.resolved {
+  background: rgba(16, 185, 129, 0.14);
+  color: #047857;
+}
+
+.activity-status.rejected {
+  background: rgba(239, 68, 68, 0.14);
+  color: #b91c1c;
+}
+
+.activity-status.in_progress {
+  background: rgba(59, 130, 246, 0.14);
+  color: #1d4ed8;
 }
 
 .quick-actions {
@@ -114,7 +176,7 @@
   padding: 12px 14px;
   border: none;
   border-radius: 10px;
-  background: #6c5ce7;
+  background: #0ea5a4;
   color: #ffffff;
   font-weight: 600;
   cursor: pointer;
@@ -122,7 +184,7 @@
 }
 
 .action-btn:hover {
-  background: #5946de;
+  background: #0b8f8d;
 }
 
 @media (max-width: 1100px) {
@@ -147,20 +209,8 @@
   .quick-actions {
     grid-template-columns: 1fr;
   }
-}
 
-.dashboard-layout.student .action-btn {
-  background: #0ea5a4;
-}
-
-.dashboard-layout.student .action-btn:hover {
-  background: #0b8f8d;
-}
-
-.dashboard-layout.management .action-btn {
-  background: #1e3a8a;
-}
-
-.dashboard-layout.management .action-btn:hover {
-  background: #172e6e;
+  .activity-item {
+    flex-direction: column;
+  }
 }

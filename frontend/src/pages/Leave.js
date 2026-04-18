@@ -32,43 +32,62 @@ const Leave = () => {
   }, [user?.id]);
 
   const handleLeaveSubmit = async (e) => {
-    e.preventDefault();
-    setSubmitting(true);
-    setMessage("");
+  e.preventDefault();
+  setSubmitting(true);
+  setMessage("");
 
-    try {
-      const response = await fetch("http://localhost:5000/api/leave/apply", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          student_id: user.id,
-          leave_type: leaveType,
-          from_date: fromDate,
-          to_date: toDate,
-          reason,
-        }),
-      });
+  // ✅ Trimmed validation
+  if (
+    !leaveType.trim() ||
+    !fromDate ||
+    !toDate ||
+    !reason.trim()
+  ) {
+    setMessage("All fields are required.");
+    setSubmitting(false);
+    return;
+  }
 
-      const data = await response.json();
+  // ✅ Date validation
+  if (new Date(fromDate) > new Date(toDate)) {
+    setMessage("From date cannot be after To date.");
+    setSubmitting(false);
+    return;
+  }
 
-      if (data.success) {
-        setMessage("Leave applied successfully.");
-        setLeaveType("");
-        setFromDate("");
-        setToDate("");
-        setReason("");
-        fetchLeaves();
-      } else {
-        setMessage(data.message || "Failed to apply for leave.");
-      }
-    } catch (error) {
-      setMessage("Server error while applying for leave.");
-    } finally {
-      setSubmitting(false);
+  try {
+    const response = await fetch("http://localhost:5000/api/leave/apply", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        student_id: user.id,
+        leave_type: leaveType.trim(),
+        from_date: fromDate,
+        to_date: toDate,
+        reason: reason.trim(),
+      }),
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      setMessage("Leave request submitted successfully.");
+      setLeaveType("");
+      setFromDate("");
+      setToDate("");
+      setReason("");
+      fetchLeaves();
+    } else {
+      setMessage(data.message || "Failed to apply for leave.");
     }
-  };
+  } catch (error) {
+    setMessage("Server error while applying for leave.");
+  } finally {
+    setSubmitting(false);
+  }
+};
 
   useEffect(() => {
     if (user?.id) {
