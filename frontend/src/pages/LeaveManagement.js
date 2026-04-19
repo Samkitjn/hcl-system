@@ -8,7 +8,7 @@ const LeaveManagement = () => {
 
   const fetchLeaves = useCallback(async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/management/leave");
+      const response = await fetch("${process.env.REACT_APP_API_URL}/api/management/leave");
       const data = await response.json();
 
       if (data.success) {
@@ -26,7 +26,7 @@ const LeaveManagement = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/management/leave/${id}`,
+        `${process.env.REACT_APP_API_URL}/api/management/leave/${id}`,
         {
           method: "PUT",
           headers: {
