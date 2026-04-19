@@ -37,7 +37,7 @@ const CommunityManagement = () => {
 
     try {
       const response = await fetch(
-        '${process.env.REACT_APP_API_URL}/api/management/community/announcement',
+        `${process.env.REACT_APP_API_URL}/api/management/community/announcement`,
         {
           method: "POST",
           headers: {

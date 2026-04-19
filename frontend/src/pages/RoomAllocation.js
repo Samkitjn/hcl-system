@@ -13,8 +13,8 @@ const RoomAllocation = () => {
   const fetchAllocationData = useCallback(async () => {
     try {
       const [studentsRes, roomsRes] = await Promise.all([
-        fetch('${process.env.REACT_APP_API_URL}/api/management/rooms/students'),
-        fetch('${process.env.REACT_APP_API_URL}/api/management/rooms/rooms'),
+        fetch(`${process.env.REACT_APP_API_URL}/api/management/rooms/students`),
+        fetch(`${process.env.REACT_APP_API_URL}/api/management/rooms/rooms`),
       ]);
 
       const studentsData = await studentsRes.json();
@@ -47,7 +47,7 @@ const RoomAllocation = () => {
 
     try {
       const response = await fetch(
-        '${process.env.REACT_APP_API_URL}/api/management/rooms/allocate',
+        `${process.env.REACT_APP_API_URL}/api/management/rooms/allocate`,
         {
           method: "POST",
           headers: {

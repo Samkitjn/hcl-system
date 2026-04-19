@@ -9,7 +9,7 @@ const Students = () => {
   const fetchPendingStudents = useCallback(async () => {
     try {
       const response = await fetch(
-        '${process.env.REACT_APP_API_URL}/api/management/students/pending'
+        `${process.env.REACT_APP_API_URL}/api/management/students/pending`
       );
       const data = await response.json();
 

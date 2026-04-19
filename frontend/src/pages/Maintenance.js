@@ -42,7 +42,7 @@ const Maintenance = () => {
   }
 
   try {
-    const response = await fetch('${process.env.REACT_APP_API_URL}/api/maintenance/create', {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/maintenance/create`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

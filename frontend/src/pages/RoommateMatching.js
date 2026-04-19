@@ -58,7 +58,7 @@ const RoommateMatching = () => {
 
   try {
     const response = await fetch(
-      '${process.env.REACT_APP_API_URL}/api/roommate/preferences',
+      `${process.env.REACT_APP_API_URL}/api/roommate/preferences`,
       {
         method: "POST",
         headers: {
@@ -94,7 +94,7 @@ const RoommateMatching = () => {
 
   try {
     const response = await fetch(
-      '${process.env.REACT_APP_API_URL}/api/roommate/request',
+      `${process.env.REACT_APP_API_URL}/api/roommate/request`,
       {
         method: "POST",
         headers: {
