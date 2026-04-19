@@ -13,6 +13,7 @@ const communityRoutes = require("./routes/communityRoutes");
 const roommateRoutes = require("./routes/roommateRoutes");
 const managementStudentRoutes = require("./routes/managementStudentRoutes");
 const managementRoomRoutes = require("./routes/managementRoomRoutes");
+const managementLeaveRoutes = require("./routes/managementLeaveRoutes");
 
 const app = express();
 
@@ -51,6 +52,7 @@ app.use("/api/community", communityRoutes);
 app.use("/api/roommate", roommateRoutes);
 app.use("/api/management/students", managementStudentRoutes);
 app.use("/api/management/rooms", managementRoomRoutes);
+app.use("/api/management/leave", managementLeaveRoutes);
 
 const PORT = process.env.PORT || 5000;
 
