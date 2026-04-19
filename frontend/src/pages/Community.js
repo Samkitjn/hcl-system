@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useCallback } from "react";
 import "./CommunityManagement.css";
 
+
 const CommunityManagement = () => {
   const user = JSON.parse(localStorage.getItem("user"));
   const [posts, setPosts] = useState([]);
