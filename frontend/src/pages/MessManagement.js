@@ -17,7 +17,7 @@ const MessManagement = () => {
   const fetchData = useCallback(async () => {
     try {
       const response = await fetch(
-        "${process.env.REACT_APP_API_URL}/api/management/mess"
+        '${process.env.REACT_APP_API_URL}/api/management/mess'
       );
       const data = await response.json();
 
@@ -39,7 +39,7 @@ const MessManagement = () => {
 
     try {
       const response = await fetch(
-        "${process.env.REACT_APP_API_URL}/api/management/mess/charge",
+        '${process.env.REACT_APP_API_URL}/api/management/mess/charge',
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

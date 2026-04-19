@@ -55,7 +55,7 @@ const Register = () => {
 
     try {
       const response = await fetch(
-        "${process.env.REACT_APP_API_URL}/api/auth/student/register",
+        '${process.env.REACT_APP_API_URL}/api/auth/student/register',
         {
           method: "POST",
           headers: {
