@@ -4,7 +4,8 @@ import "./RoomsManagement.css";
 const RoomsManagement = () => {
   const [rooms, setRooms] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  const API_BASE_URL = process.env.REACT_APP_API_URL;
+  
   const fetchRooms = useCallback(async () => {
     try {
       const response = await fetch(

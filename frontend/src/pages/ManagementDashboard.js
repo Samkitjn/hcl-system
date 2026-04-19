@@ -16,7 +16,8 @@ const ManagementDashboard = () => {
   const [recentLeaves, setRecentLeaves] = useState([]);
   const [recentMaintenance, setRecentMaintenance] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  const API_BASE_URL = process.env.REACT_APP_API_URL;
+  
   const fetchDashboardData = useCallback(async () => {
     try {
       const response = await fetch(

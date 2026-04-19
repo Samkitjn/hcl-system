@@ -8,6 +8,7 @@ const CommunityManagement = () => {
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
   const [message, setMessage] = useState("");
+  const API_BASE_URL = process.env.REACT_APP_API_URL;
 
   const fetchPosts = useCallback(async () => {
     try {

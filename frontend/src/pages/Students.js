@@ -5,7 +5,8 @@ const Students = () => {
   const [students, setStudents] = useState([]);
   const [loading, setLoading] = useState(true);
   const [message, setMessage] = useState("");
-
+  const API_BASE_URL = process.env.REACT_APP_API_URL;
+  
   const fetchPendingStudents = useCallback(async () => {
     try {
       const response = await fetch(

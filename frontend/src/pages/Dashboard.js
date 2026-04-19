@@ -11,6 +11,7 @@ const Dashboard = () => {
   const [leaves, setLeaves] = useState([]);
   const [maintenanceRequests, setMaintenanceRequests] = useState([]);
   const [loading, setLoading] = useState(true);
+  const API_BASE_URL = process.env.REACT_APP_API_URL;
 
   const fetchDashboardData = useCallback(async () => {
     try {
