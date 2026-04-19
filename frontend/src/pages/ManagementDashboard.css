@@ -1,0 +1,213 @@
+.management-dashboard-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.management-dashboard-hero {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  background: linear-gradient(135deg, #ffffff 0%, #eff6ff 100%);
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  border: 1px solid #dbeafe;
+}
+
+.management-dashboard-heading {
+  font-size: 30px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 8px;
+}
+
+.management-dashboard-text {
+  color: #666;
+  font-size: 15px;
+  max-width: 650px;
+  line-height: 1.6;
+}
+
+.management-dashboard-user-box {
+  min-width: 260px;
+  background: #ffffff;
+  border: 1px solid #ececec;
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+}
+
+.management-dashboard-user-box p {
+  margin: 8px 0;
+  color: #444;
+  font-size: 14px;
+}
+
+.management-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.management-stat-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 22px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+  border: 1px solid #f0f0f0;
+}
+
+.management-stat-title {
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.management-stat-value {
+  font-size: 28px;
+  color: #1f2937;
+  margin-bottom: 8px;
+}
+
+.management-stat-subtitle {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.management-dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.management-panel-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 22px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+  border: 1px solid #f0f0f0;
+}
+
+.management-panel-title {
+  font-size: 18px;
+  color: #1f2937;
+  margin-bottom: 16px;
+}
+
+.management-panel-empty {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.management-activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.management-activity-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: #f9fafb;
+  border: 1px solid #edf0f3;
+}
+
+.management-activity-main {
+  color: #374151;
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.management-activity-sub {
+  color: #6b7280;
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+.management-badge {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+.management-badge.pending {
+  background: rgba(245, 158, 11, 0.14);
+  color: #b45309;
+}
+
+.management-badge.approved,
+.management-badge.resolved {
+  background: rgba(16, 185, 129, 0.14);
+  color: #047857;
+}
+
+.management-badge.rejected {
+  background: rgba(239, 68, 68, 0.14);
+  color: #b91c1c;
+}
+
+.management-badge.in_progress {
+  background: rgba(59, 130, 246, 0.14);
+  color: #1d4ed8;
+}
+
+@media (max-width: 1200px) {
+  .management-stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .management-dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .management-dashboard-hero {
+    flex-direction: column;
+  }
+
+  .management-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .management-dashboard-page {
+    gap: 18px;
+  }
+
+  .management-dashboard-hero,
+  .management-stat-card,
+  .management-panel-card {
+    padding: 16px;
+  }
+
+  .management-dashboard-heading {
+    font-size: 22px;
+  }
+
+  .management-dashboard-text {
+    font-size: 14px;
+  }
+
+  .management-stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .management-activity-item {
+    flex-direction: column;
+  }
+}
