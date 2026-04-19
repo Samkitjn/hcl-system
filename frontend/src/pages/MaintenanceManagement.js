@@ -9,7 +9,7 @@ const MaintenanceManagement = () => {
   const fetchRequests = useCallback(async () => {
     try {
       const response = await fetch(
-        "${process.env.REACT_APP_API_URL}/api/management/maintenance"
+        `${process.env.REACT_APP_API_URL}/api/management/maintenance`
       );
       const data = await response.json();
 
