@@ -1,0 +1,55 @@
+.mess-management-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.mess-management-hero {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.mess-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.mess-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.mess-form input,
+.mess-form select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.mess-form button {
+  padding: 10px 16px;
+  background: #1e3a8a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.mess-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.mess-table th,
+.mess-table td {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.mess-message {
+  margin-top: 10px;
+  color: #1e3a8a;
+}
