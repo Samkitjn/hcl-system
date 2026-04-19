@@ -1,0 +1,139 @@
+.community-management-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.community-management-hero {
+  background: linear-gradient(135deg, #ffffff 0%, #eff6ff 100%);
+  border-radius: 18px;
+  padding: 24px;
+  border: 1px solid #dbeafe;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.community-management-heading {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 8px;
+}
+
+.community-management-subtext {
+  color: #6b7280;
+  font-size: 15px;
+  line-height: 1.6;
+  max-width: 720px;
+}
+
+.community-management-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 22px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.community-management-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.community-management-card-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.community-management-count {
+  min-width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background: #1e3a8a;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.community-management-message {
+  margin-bottom: 14px;
+  padding: 12px;
+  border-radius: 10px;
+  background: #eff6ff;
+  color: #1e3a8a;
+  font-size: 14px;
+  border-left: 3px solid #1e3a8a;
+}
+
+.community-management-empty {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.community-management-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.community-management-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: #f9fafb;
+  border: 1px solid #edf0f3;
+}
+
+.community-management-main {
+  font-weight: 600;
+  font-size: 14px;
+  color: #374151;
+}
+
+.community-management-text {
+  margin-top: 4px;
+  font-size: 14px;
+  color: #4b5563;
+}
+
+.community-delete-btn {
+  background: #b91c1c;
+  color: #ffffff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.community-delete-btn:hover {
+  background: #991b1b;
+}
+
+@media (max-width: 768px) {
+  .community-management-page {
+    gap: 18px;
+  }
+
+  .community-management-hero,
+  .community-management-card {
+    padding: 16px;
+  }
+
+  .community-management-heading {
+    font-size: 22px;
+  }
+
+  .community-management-item {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,140 @@
+.rooms-management-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.rooms-management-hero {
+  background: linear-gradient(135deg, #ffffff 0%, #eff6ff 100%);
+  border-radius: 18px;
+  padding: 24px;
+  border: 1px solid #dbeafe;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.rooms-management-heading {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 8px;
+}
+
+.rooms-management-subtext {
+  color: #6b7280;
+  font-size: 15px;
+  line-height: 1.6;
+  max-width: 720px;
+}
+
+.rooms-management-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 22px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.rooms-management-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.rooms-management-card-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.rooms-management-count {
+  min-width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background: #1e3a8a;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.rooms-management-empty {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.rooms-management-table-wrapper {
+  overflow-x: auto;
+}
+
+.rooms-management-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.rooms-management-table thead th {
+  text-align: left;
+  padding: 14px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #6b7280;
+  background: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.rooms-management-table tbody td {
+  padding: 16px;
+  border-bottom: 1px solid #eef2f7;
+  color: #374151;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+.room-status-badge {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.room-status-badge.available {
+  background: rgba(16, 185, 129, 0.14);
+  color: #047857;
+}
+
+.room-status-badge.full {
+  background: rgba(239, 68, 68, 0.14);
+  color: #b91c1c;
+}
+
+@media (max-width: 768px) {
+  .rooms-management-page {
+    gap: 18px;
+  }
+
+  .rooms-management-hero,
+  .rooms-management-card {
+    padding: 16px;
+  }
+
+  .rooms-management-heading {
+    font-size: 22px;
+  }
+
+  .rooms-management-subtext {
+    font-size: 14px;
+  }
+
+  .rooms-management-table thead th,
+  .rooms-management-table tbody td {
+    padding: 12px;
+    font-size: 13px;
+  }
+}

@@ -16,6 +16,8 @@ const managementRoomRoutes = require("./routes/managementRoomRoutes");
 const managementLeaveRoutes = require("./routes/managementLeaveRoutes");
 const managementMaintenanceRoutes = require("./routes/managementMaintenanceRoutes");
 const managementDashboardRoutes = require("./routes/managementDashboardRoutes");
+const roomsManagementRoutes = require("./routes/roomsManagementRoutes");
+const managementCommunityRoutes = require("./routes/managementCommunityRoutes");
 
 const app = express();
 
@@ -57,6 +59,8 @@ app.use("/api/management/rooms", managementRoomRoutes);
 app.use("/api/management/leave", managementLeaveRoutes);
 app.use("/api/management/maintenance", managementMaintenanceRoutes);
 app.use("/api/management/dashboard", managementDashboardRoutes);
+app.use("/api/management/rooms-list", roomsManagementRoutes);
+app.use("/api/management/community", managementCommunityRoutes);
 
 const PORT = process.env.PORT || 5000;
 
