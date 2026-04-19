@@ -1,139 +1,182 @@
 import React, { useEffect, useState, useCallback } from "react";
-import "./Community.css";
+import "./CommunityManagement.css";
 
-const Community = () => {
+const CommunityManagement = () => {
   const user = JSON.parse(localStorage.getItem("user"));
-  const role = localStorage.getItem("role") || "student";
-
-  const [content, setContent] = useState("");
   const [posts, setPosts] = useState([]);
-  const [loadingPosts, setLoadingPosts] = useState(true);
+  const [content, setContent] = useState("");
+  const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
   const [message, setMessage] = useState("");
 
   const fetchPosts = useCallback(async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/community/posts");
+      const response = await fetch(
+        "http://localhost:5000/api/management/community"
+      );
       const data = await response.json();
 
       if (data.success) {
         setPosts(data.posts);
       }
     } catch (error) {
-      console.error("Error fetching posts:", error);
+      console.error("Error fetching community posts:", error);
     } finally {
-      setLoadingPosts(false);
+      setLoading(false);
     }
   }, []);
 
-  const handleSubmit = async (e) => {
-  e.preventDefault();
-  setSubmitting(true);
-  setMessage("");
+  const handleAnnouncementSubmit = async (e) => {
+    e.preventDefault();
+    setMessage("");
+    setSubmitting(true);
 
-  if (!content.trim()) {
-    setMessage("Post content cannot be empty.");
-    setSubmitting(false);
-    return;
-  }
-
-  try {
-    const response = await fetch("http://localhost:5000/api/community/post", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        student_id: user.id,
-        content: content.trim(),
-      }),
-    });
-
-    const data = await response.json();
-
-    if (data.success) {
-      setMessage("Post created successfully.");
-      setContent("");
-      fetchPosts();
-    } else {
-      setMessage(data.message || "Failed to create post.");
+    if (!content.trim()) {
+      setMessage("Announcement content cannot be empty.");
+      setSubmitting(false);
+      return;
     }
-  } catch (error) {
-    setMessage("Server error while creating post.");
-  } finally {
-    setSubmitting(false);
-  }
-};
+
+    try {
+      const response = await fetch(
+        "http://localhost:5000/api/management/community/announcement",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            management_name: user?.full_name || "Management",
+            content: content.trim(),
+          }),
+        }
+      );
+
+      const data = await response.json();
+
+      if (data.success) {
+        setMessage("Announcement posted successfully.");
+        setContent("");
+        fetchPosts();
+      } else {
+        setMessage(data.message || "Failed to post announcement.");
+      }
+    } catch (error) {
+      setMessage("Failed to post announcement.");
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  const handleDelete = async (id) => {
+    setMessage("");
+
+    try {
+      const response = await fetch(
+        `http://localhost:5000/api/management/community/${id}`,
+        {
+          method: "DELETE",
+        }
+      );
+
+      const data = await response.json();
+
+      if (data.success) {
+        setMessage("Post deleted successfully.");
+        setPosts((prev) => prev.filter((post) => post.id !== id));
+      } else {
+        setMessage(data.message || "Failed to delete post.");
+      }
+    } catch (error) {
+      setMessage("Failed to delete post.");
+    }
+  };
 
   useEffect(() => {
     fetchPosts();
   }, [fetchPosts]);
 
   return (
-    <div className={`community-page ${role}`}>
-      <div className="community-hero">
+    <div className="community-management-page">
+      <div className="community-management-hero">
         <div>
-          <h1 className="community-heading">Community</h1>
-          <p className="community-subtext">
-            Share updates, announcements, and connect with other students in the
-            hostel.
+          <h1 className="community-management-heading">Community Management</h1>
+          <p className="community-management-subtext">
+            Post official announcements, review community activity, and remove unwanted content.
           </p>
         </div>
       </div>
 
-      <div className="community-card">
-        <h2 className="community-card-title">Create Post</h2>
+      <div className="community-management-card">
+        <h2 className="community-management-card-title">Post Announcement</h2>
 
-        <form className="community-form" onSubmit={handleSubmit}>
+        <form
+          className="community-management-form"
+          onSubmit={handleAnnouncementSubmit}
+        >
           <textarea
             rows="3"
             value={content}
             onChange={(e) => setContent(e.target.value)}
-            placeholder="Write something..."
+            placeholder="Write an official announcement..."
             required
           />
 
           <button
             type="submit"
-            className="community-btn"
+            className="community-announcement-btn"
             disabled={submitting}
           >
-            {submitting ? "Posting..." : "Post"}
+            {submitting ? "Posting..." : "Post Announcement"}
           </button>
-
-          {message && <p className="community-message">{message}</p>}
         </form>
       </div>
 
-      <div className="community-feed">
-        <h2 className="community-card-title">Community Feed</h2>
+      <div className="community-management-card">
+        <div className="community-management-card-header">
+          <h2 className="community-management-card-title">All Posts</h2>
+          <span className="community-management-count">{posts.length}</span>
+        </div>
 
-        {loadingPosts ? (
-          <p className="community-empty">Loading data...</p>
+        {message && <p className="community-management-message">{message}</p>}
+
+        {loading ? (
+          <p className="community-management-empty">Loading data...</p>
         ) : posts.length > 0 ? (
-          posts.map((post) => (
-            <div key={post.id} className="community-post">
-              <div className="community-post-header">
-                <div>
-                  <p className="community-author">{post.full_name}</p>
-                  <p className="community-student-id">
-                    {post.student_id}
+          <div className="community-management-list">
+            {posts.map((post) => (
+              <div
+                className={`community-management-item ${
+                  post.posted_by_role === "management" ? "announcement" : ""
+                }`}
+                key={post.id}
+              >
+                <div className="community-management-content">
+                  <p className="community-management-main">
+                    {post.posted_by_name}
+                    {post.posted_by_role === "management" && " • Announcement"}
+                    {post.posted_by_role === "student" && post.student_id
+                      ? ` (${post.student_id})`
+                      : ""}
                   </p>
+                  <p className="community-management-text">{post.content}</p>
                 </div>
-                <span className="community-date">
-                  {post.created_at?.split("T")[0]}
-                </span>
-              </div>
 
-              <p className="community-content">{post.content}</p>
-            </div>
-          ))
+                <button
+                  className="community-delete-btn"
+                  onClick={() => handleDelete(post.id)}
+                >
+                  Delete
+                </button>
+              </div>
+            ))}
+          </div>
         ) : (
-          <p className="community-empty">No community posts found.</p>
+          <p className="community-management-empty">No records found.</p>
         )}
       </div>
     </div>
   );
 };
 
-export default Community;
+export default CommunityManagement;

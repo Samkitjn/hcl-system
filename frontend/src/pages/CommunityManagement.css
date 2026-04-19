@@ -39,6 +39,7 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 18px;
+  gap: 12px;
 }
 
 .community-management-card-title {
@@ -58,6 +59,54 @@
   justify-content: center;
   font-size: 13px;
   font-weight: 700;
+}
+
+.community-management-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.community-management-form textarea {
+  width: 100%;
+  min-height: 110px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  resize: vertical;
+  font-size: 14px;
+  color: #1f2937;
+  background: #ffffff;
+}
+
+.community-management-form textarea:focus {
+  outline: none;
+  border-color: #1e3a8a;
+  box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.12);
+}
+
+.community-announcement-btn {
+  align-self: flex-start;
+  background: #1e3a8a;
+  color: #ffffff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 6px;
+  transition: 0.3s ease;
+}
+
+.community-announcement-btn:hover:not(:disabled) {
+  background: #172e6e;
+}
+
+.community-announcement-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
 }
 
 .community-management-message {
@@ -92,6 +141,16 @@
   border: 1px solid #edf0f3;
 }
 
+.community-management-item.announcement {
+  background: #f8fbff;
+  border: 1px solid #dbeafe;
+}
+
+.community-management-content {
+  flex: 1;
+  min-width: 0;
+}
+
 .community-management-main {
   font-weight: 600;
   font-size: 14px;
@@ -102,6 +161,8 @@
   margin-top: 4px;
   font-size: 14px;
   color: #4b5563;
+  line-height: 1.5;
+  word-break: break-word;
 }
 
 .community-delete-btn {
@@ -113,6 +174,7 @@
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
+  flex-shrink: 0;
 }
 
 .community-delete-btn:hover {
@@ -133,7 +195,24 @@
     font-size: 22px;
   }
 
+  .community-management-subtext {
+    font-size: 14px;
+  }
+
+  .community-management-form textarea {
+    min-height: 100px;
+  }
+
   .community-management-item {
     flex-direction: column;
+  }
+
+  .community-delete-btn {
+    width: 100%;
+  }
+
+  .community-announcement-btn {
+    width: 100%;
+    align-self: stretch;
   }
 }
