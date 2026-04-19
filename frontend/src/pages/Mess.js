@@ -16,7 +16,7 @@ const Mess = () => {
 
   const fetchMenu = useCallback(async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/mess/menu");
+      const response = await fetch("${process.env.REACT_APP_API_URL}/api/mess/menu");
       const data = await response.json();
 
       if (data.success) {
@@ -32,7 +32,7 @@ const Mess = () => {
   const fetchCharges = useCallback(async () => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/mess/charges/${user.id}`
+        `${process.env.REACT_APP_API_URL}/api/mess/charges/${user.id}`
       );
       const data = await response.json();
 
@@ -66,7 +66,7 @@ const Mess = () => {
   }
 
   try {
-    const response = await fetch("http://localhost:5000/api/mess/feedback", {
+    const response = await fetch("${process.env.REACT_APP_API_URL}/api/mess/feedback", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

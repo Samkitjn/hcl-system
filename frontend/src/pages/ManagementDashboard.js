@@ -20,7 +20,7 @@ const ManagementDashboard = () => {
   const fetchDashboardData = useCallback(async () => {
     try {
       const response = await fetch(
-        "http://localhost:5000/api/management/dashboard/summary"
+        "${process.env.REACT_APP_API_URL}/api/management/dashboard/summary"
       );
       const data = await response.json();
 

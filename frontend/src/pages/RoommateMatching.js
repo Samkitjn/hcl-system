@@ -19,7 +19,7 @@ const RoommateMatching = () => {
   const fetchMatches = useCallback(async () => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/roommate/matches/${user.id}`
+        `${process.env.REACT_APP_API_URL}/api/roommate/matches/${user.id}`
       );
       const data = await response.json();
 
@@ -58,7 +58,7 @@ const RoommateMatching = () => {
 
   try {
     const response = await fetch(
-      "http://localhost:5000/api/roommate/preferences",
+      "${process.env.REACT_APP_API_URL}/api/roommate/preferences",
       {
         method: "POST",
         headers: {
@@ -94,7 +94,7 @@ const RoommateMatching = () => {
 
   try {
     const response = await fetch(
-      "http://localhost:5000/api/roommate/request",
+      "${process.env.REACT_APP_API_URL}/api/roommate/request",
       {
         method: "POST",
         headers: {
