@@ -71,7 +71,7 @@ const Register = () => {
       const data = await response.json();
 
       if (!response.ok) {
-        setError(data.message || "Registration failed.");
+        setError(data.message || "Failed to register.");
         setLoading(false);
         return;
       }

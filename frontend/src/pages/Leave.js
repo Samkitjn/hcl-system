@@ -200,7 +200,7 @@ const Leave = () => {
         </div>
 
         {loadingLeaves ? (
-          <p className="leave-empty">Loading leave history...</p>
+          <p className="leave-empty">Loading data...</p>
         ) : leaves.length > 0 ? (
           <div className="leave-table-wrapper">
             <table className="leave-table">
@@ -231,7 +231,7 @@ const Leave = () => {
             </table>
           </div>
         ) : (
-          <p className="leave-empty">No leave requests found.</p>
+          <p className="leave-empty">No leave records found.</p>
         )}
       </div>
     </div>

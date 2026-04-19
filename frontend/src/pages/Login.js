@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import InteractiveShapes from "./AnimatedShapes";
 import "../styles/Login.css";
-
 
 const Login = () => {
   const navigate = useNavigate();
@@ -13,6 +12,17 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    const storedRole = localStorage.getItem("role");
+
+    if (token && storedRole === "management") {
+      navigate("/management/dashboard");
+    } else if (token && storedRole === "student") {
+      navigate("/student/dashboard");
+    }
+  }, [navigate]);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -31,8 +41,8 @@ const Login = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          email,
-          password,
+          email: email.trim(),
+          password: password.trim(),
         }),
       });
 
@@ -56,7 +66,7 @@ const Login = () => {
         navigate("/student/dashboard");
       }
     } catch (err) {
-      setError("Unable to connect to server");
+      setError("Server error. Please try again.");
       setLoading(false);
     }
   };

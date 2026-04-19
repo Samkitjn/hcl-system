@@ -51,7 +51,7 @@ const MaintenanceManagement = () => {
         setMessage(data.message || "Failed to update maintenance request.");
       }
     } catch (error) {
-      setMessage("Server error while updating maintenance request.");
+      setMessage("Failed to update maintenance request.");
     }
   };
 

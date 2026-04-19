@@ -34,8 +34,10 @@ const Header = ({ mobileMenuOpen, setMobileMenuOpen }) => {
           </h2>
           <p className="header-subtitle">
             {user
-              ? `${user.full_name}${user.student_id ? ` (${user.student_id})` : ""}`
-              : "User"}
+              ? role === "management"
+                ? `${user.full_name} • Management`
+                : `${user.full_name}${user.student_id ? ` • ${user.student_id}` : ""}`
+              : "Portal User"}
           </p>
         </div>
       </div>

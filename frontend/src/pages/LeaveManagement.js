@@ -49,7 +49,7 @@ const LeaveManagement = () => {
         setMessage(data.message || "Failed to update leave request.");
       }
     } catch (error) {
-      setMessage("Server error while updating leave request.");
+      setMessage("Failed to update leave request.");
     }
   };
 

@@ -71,7 +71,7 @@ const RoomAllocation = () => {
         setMessage(data.message || "Failed to allocate room.");
       }
     } catch (error) {
-      setMessage("Server error while allocating room.");
+      setMessage("Failed to allocate room.");
     } finally {
       setAllocating(false);
     }

@@ -109,7 +109,7 @@ const Community = () => {
         <h2 className="community-card-title">Community Feed</h2>
 
         {loadingPosts ? (
-          <p className="community-empty">Loading posts...</p>
+          <p className="community-empty">Loading data...</p>
         ) : posts.length > 0 ? (
           posts.map((post) => (
             <div key={post.id} className="community-post">
@@ -129,7 +129,7 @@ const Community = () => {
             </div>
           ))
         ) : (
-          <p className="community-empty">No posts yet.</p>
+          <p className="community-empty">No community posts found.</p>
         )}
       </div>
     </div>
