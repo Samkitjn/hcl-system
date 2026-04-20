@@ -58,14 +58,13 @@ const loginManagement = async (req, res) => {
       },
     });
   } catch (error) {
-  console.error("Management login full error:", error);
-  console.error("Management login message:", error.message);
-  console.error("Management login stack:", error.stack);
-
-  return res.status(500).json({
-    success: false,
-    message: "Server error. Please try again."
-  });
+      console.error("Management login error:", error.message);
+        return res.status(500).json({
+          success: false,
+          message: "Server error",
+          error: error.message,
+        });
+      }
 };
 
 module.exports = { loginManagement };
