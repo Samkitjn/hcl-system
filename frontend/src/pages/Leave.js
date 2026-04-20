@@ -13,6 +13,7 @@ const Leave = () => {
   const [leaves, setLeaves] = useState([]);
   const [loadingLeaves, setLoadingLeaves] = useState(true);
   const [submitting, setSubmitting] = useState(false);
+  const API_BASE_URL = process.env.REACT_APP_API_URL;
 
   const fetchLeaves = useCallback(async () => {
     try {

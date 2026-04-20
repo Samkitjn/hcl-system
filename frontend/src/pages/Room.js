@@ -12,7 +12,8 @@ const Room = () => {
   const [message, setMessage] = useState("");
   const [loadingRooms, setLoadingRooms] = useState(true);
   const [submitting, setSubmitting] = useState(false);
-
+  const API_BASE_URL = process.env.REACT_APP_API_URL;
+  
   const fetchMyRoom = async () => {
     try {
       const response = await fetch(

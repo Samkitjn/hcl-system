@@ -15,7 +15,8 @@ const RoommateMatching = () => {
   const [message, setMessage] = useState("");
   const [loadingMatches, setLoadingMatches] = useState(true);
   const [saving, setSaving] = useState(false);
-
+  const API_BASE_URL = process.env.REACT_APP_API_URL;
+  
   const fetchMatches = useCallback(async () => {
     try {
       const response = await fetch(

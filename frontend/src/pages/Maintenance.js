@@ -12,7 +12,8 @@ const Maintenance = () => {
   const [requests, setRequests] = useState([]);
   const [loadingRequests, setLoadingRequests] = useState(true);
   const [submitting, setSubmitting] = useState(false);
-
+  const API_BASE_URL = process.env.REACT_APP_API_URL;
+  
   const fetchRequests = useCallback(async () => {
     try {
       const response = await fetch(

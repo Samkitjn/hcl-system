@@ -13,7 +13,8 @@ const Mess = () => {
   const [loadingMenu, setLoadingMenu] = useState(true);
   const [loadingCharges, setLoadingCharges] = useState(true);
   const [submitting, setSubmitting] = useState(false);
-
+  const API_BASE_URL = process.env.REACT_APP_API_URL;
+  
   const fetchMenu = useCallback(async () => {
     try {
       const response = await fetch("http://localhost:5000/api/mess/menu");

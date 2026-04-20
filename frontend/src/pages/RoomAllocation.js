@@ -9,7 +9,8 @@ const RoomAllocation = () => {
   const [loading, setLoading] = useState(true);
   const [allocating, setAllocating] = useState(false);
   const [message, setMessage] = useState("");
-
+  const API_BASE_URL = process.env.REACT_APP_API_URL;
+  
   const fetchAllocationData = useCallback(async () => {
     try {
       const [studentsRes, roomsRes] = await Promise.all([
