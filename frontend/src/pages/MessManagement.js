@@ -13,7 +13,8 @@ const MessManagement = () => {
 
   const [loading, setLoading] = useState(true);
   const [message, setMessage] = useState("");
-
+  const API_BASE_URL = process.env.REACT_APP_API_URL;
+  
   const fetchData = useCallback(async () => {
     try {
       const response = await fetch(

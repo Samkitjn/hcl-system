@@ -5,7 +5,8 @@ const LeaveManagement = () => {
   const [leaves, setLeaves] = useState([]);
   const [loading, setLoading] = useState(true);
   const [message, setMessage] = useState("");
-
+  const API_BASE_URL = process.env.REACT_APP_API_URL;
+  
   const fetchLeaves = useCallback(async () => {
     try {
       const response = await fetch(`${process.env.REACT_APP_API_URL}/api/management/leave`);
