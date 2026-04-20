@@ -17,7 +17,7 @@ const Leave = () => {
   const fetchLeaves = useCallback(async () => {
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_API_URL}/api/leave/student/${user.id}`
+        `http://localhost:5000/api/leave/student/${user.id}`
       );
       const data = await response.json();
 
@@ -56,7 +56,7 @@ const Leave = () => {
   }
 
   try {
-    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/leave/apply`, {
+    const response = await fetch("http://localhost:5000/api/leave/apply", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

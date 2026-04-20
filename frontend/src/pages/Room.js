@@ -16,7 +16,7 @@ const Room = () => {
   const fetchMyRoom = async () => {
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_API_URL}/api/room/my-room/${user.id}`
+        `http://localhost:5000/api/room/my-room/${user.id}`
       );
       const data = await response.json();
 
@@ -30,7 +30,7 @@ const Room = () => {
 
   const fetchAvailableRooms = async () => {
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/room/available`);
+      const response = await fetch("http://localhost:5000/api/room/available");
       const data = await response.json();
 
       if (data.success) {
@@ -49,7 +49,7 @@ const Room = () => {
     setMessage("");
 
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/room/preference`, {
+      const response = await fetch("http://localhost:5000/api/room/preference", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

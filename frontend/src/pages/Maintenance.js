@@ -16,7 +16,7 @@ const Maintenance = () => {
   const fetchRequests = useCallback(async () => {
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_API_URL}/api/maintenance/student/${user.id}`
+        `http://localhost:5000/api/maintenance/student/${user.id}`
       );
       const data = await response.json();
 
@@ -42,7 +42,7 @@ const Maintenance = () => {
   }
 
   try {
-    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/maintenance/create`, {
+    const response = await fetch("http://localhost:5000/api/maintenance/create", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
