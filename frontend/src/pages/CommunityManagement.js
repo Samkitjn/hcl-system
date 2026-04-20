@@ -13,7 +13,7 @@ const CommunityManagement = () => {
   const fetchPosts = useCallback(async () => {
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_API_URL}/api/management/community`
+        "http://localhost:5000/api/management/community"
       );
       const data = await response.json();
 
@@ -40,7 +40,7 @@ const CommunityManagement = () => {
 
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_API_URL}/api/management/community/announcement`,
+        "http://localhost:5000/api/management/community/announcement",
         {
           method: "POST",
           headers: {
@@ -74,7 +74,7 @@ const CommunityManagement = () => {
 
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_API_URL}/api/management/community/${id}`,
+        `http://localhost:5000/api/management/community/${id}`,
         {
           method: "DELETE",
         }

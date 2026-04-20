@@ -10,7 +10,7 @@ const MaintenanceManagement = () => {
   const fetchRequests = useCallback(async () => {
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_API_URL}/api/management/maintenance`
+        "http://localhost:5000/api/management/maintenance"
       );
       const data = await response.json();
 
@@ -29,7 +29,7 @@ const MaintenanceManagement = () => {
 
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_API_URL}/api/management/maintenance/${id}`,
+        `http://localhost:5000/api/management/maintenance/${id}`,
         {
           method: "PUT",
           headers: {

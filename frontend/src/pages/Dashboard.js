@@ -17,10 +17,10 @@ const Dashboard = () => {
     try {
       const [roomRes, chargesRes, leavesRes, maintenanceRes] =
         await Promise.all([
-          fetch(`${process.env.REACT_APP_API_URL}/api/room/my-room/${user.id}`),
-          fetch(`${process.env.REACT_APP_API_URL}/api/mess/charges/${user.id}`),
-          fetch(`${process.env.REACT_APP_API_URL}/api/leave/student/${user.id}`),
-          fetch(`${process.env.REACT_APP_API_URL}/api/maintenance/student/${user.id}`),
+          fetch(`http://localhost:5000/api/room/my-room/${user.id}`),
+          fetch(`http://localhost:5000/api/mess/charges/${user.id}`),
+          fetch(`http://localhost:5000/api/leave/student/${user.id}`),
+          fetch(`http://localhost:5000/api/maintenance/student/${user.id}`),
         ]);
 
       const roomData = await roomRes.json();

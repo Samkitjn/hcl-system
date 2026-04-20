@@ -10,7 +10,7 @@ const Students = () => {
   const fetchPendingStudents = useCallback(async () => {
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_API_URL}/api/management/students/pending`
+        "http://localhost:5000/api/management/students/pending"
       );
       const data = await response.json();
 
@@ -29,7 +29,7 @@ const Students = () => {
 
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_API_URL}/api/management/students/approve/${id}`,
+        `http://localhost:5000/api/management/students/approve/${id}`,
         {
           method: "PUT",
         }

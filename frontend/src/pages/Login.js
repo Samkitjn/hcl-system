@@ -33,8 +33,8 @@ const Login = () => {
     try {
       const url =
         role === "management"
-          ? `${process.env.REACT_APP_API_URL}/api/auth/management/login`
-          : `${process.env.REACT_APP_API_URL}/api/auth/student/login`;
+          ? "http://localhost:5000/api/auth/management/login"
+          : "http://localhost:5000/api/auth/student/login";
 
       const response = await fetch(url, {
         method: "POST",
