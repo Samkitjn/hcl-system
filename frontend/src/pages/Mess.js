@@ -17,7 +17,7 @@ const Mess = () => {
   
   const fetchMenu = useCallback(async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/mess/menu");
+      const response = await fetch("https://hcl-system.onrender.com/api/mess/menu");
       const data = await response.json();
 
       if (data.success) {
@@ -67,7 +67,7 @@ const Mess = () => {
   }
 
   try {
-    const response = await fetch("http://localhost:5000/api/mess/feedback", {
+    const response = await fetch("https://hcl-system.onrender.com/api/mess/feedback", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

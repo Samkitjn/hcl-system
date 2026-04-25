@@ -59,7 +59,7 @@ const RoommateMatching = () => {
 
   try {
     const response = await fetch(
-      "http://localhost:5000/api/roommate/preferences",
+      "https://hcl-system.onrender.com/api/roommate/preferences",
       {
         method: "POST",
         headers: {
@@ -95,7 +95,7 @@ const RoommateMatching = () => {
 
   try {
     const response = await fetch(
-      "http://localhost:5000/api/roommate/request",
+      "https://hcl-system.onrender.com/api/roommate/request",
       {
         method: "POST",
         headers: {

@@ -9,7 +9,7 @@ const LeaveManagement = () => {
   
   const fetchLeaves = useCallback(async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/management/leave");
+      const response = await fetch("https://hcl-system.onrender.com/api/management/leave");
       const data = await response.json();
 
       if (data.success) {

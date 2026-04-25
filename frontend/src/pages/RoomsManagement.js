@@ -9,7 +9,7 @@ const RoomsManagement = () => {
   const fetchRooms = useCallback(async () => {
     try {
       const response = await fetch(
-        "http://localhost:5000/api/management/rooms-list"
+        "https://hcl-system.onrender.com/api/management/rooms-list"
       );
       const data = await response.json();
 

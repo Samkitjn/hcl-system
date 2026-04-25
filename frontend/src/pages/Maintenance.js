@@ -43,7 +43,7 @@ const Maintenance = () => {
   }
 
   try {
-    const response = await fetch("http://localhost:5000/api/maintenance/create", {
+    const response = await fetch("https://hcl-system.onrender.com/api/maintenance/create", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

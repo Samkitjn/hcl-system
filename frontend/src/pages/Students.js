@@ -10,7 +10,7 @@ const Students = () => {
   const fetchPendingStudents = useCallback(async () => {
     try {
       const response = await fetch(
-        "http://localhost:5000/api/management/students/pending"
+        "https://hcl-system.onrender.com/api/management/students/pending"
       );
       const data = await response.json();
 

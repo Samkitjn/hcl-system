@@ -18,7 +18,7 @@ const MessManagement = () => {
   const fetchData = useCallback(async () => {
     try {
       const response = await fetch(
-        "http://localhost:5000/api/management/mess"
+        "https://hcl-system.onrender.com/api/management/mess"
       );
       const data = await response.json();
 
@@ -40,7 +40,7 @@ const MessManagement = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/management/mess/charge",
+        "https://hcl-system.onrender.com/api/management/mess/charge",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

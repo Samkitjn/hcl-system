@@ -31,7 +31,7 @@ const Room = () => {
 
   const fetchAvailableRooms = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/room/available");
+      const response = await fetch("https://hcl-system.onrender.com/api/room/available");
       const data = await response.json();
 
       if (data.success) {
@@ -50,7 +50,7 @@ const Room = () => {
     setMessage("");
 
     try {
-      const response = await fetch("http://localhost:5000/api/room/preference", {
+      const response = await fetch("https://hcl-system.onrender.com/api/room/preference", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

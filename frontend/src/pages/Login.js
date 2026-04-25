@@ -33,8 +33,8 @@ const Login = () => {
     try {
       const url =
         role === "management"
-          ? "http://localhost:5000/api/auth/management/login"
-          : "http://localhost:5000/api/auth/student/login";
+          ? "https://hcl-system.onrender.com/api/auth/management/login"
+          : "https://hcl-system.onrender.com/api/auth/student/login";
 
       const response = await fetch(url, {
         method: "POST",
