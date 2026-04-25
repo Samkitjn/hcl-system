@@ -14,7 +14,7 @@ const CommunityManagement = () => {
   const fetchPosts = useCallback(async () => {
     try {
       const response = await fetch(
-        "http://localhost:5000/api/management/community"
+        "https://hcl-system.onrender.com/api/management/community"
       );
       const data = await response.json();
 
@@ -41,7 +41,7 @@ const CommunityManagement = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/management/community/announcement",
+        "https://hcl-system.onrender.com/api/management/community/announcement",
         {
           method: "POST",
           headers: {

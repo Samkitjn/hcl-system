@@ -14,8 +14,8 @@ const RoomAllocation = () => {
   const fetchAllocationData = useCallback(async () => {
     try {
       const [studentsRes, roomsRes] = await Promise.all([
-        fetch("http://localhost:5000/api/management/rooms/students"),
-        fetch("http://localhost:5000/api/management/rooms/rooms"),
+        fetch("https://hcl-system.onrender.com/api/management/rooms/students"),
+        fetch("https://hcl-system.onrender.com/api/management/rooms/rooms"),
       ]);
 
       const studentsData = await studentsRes.json();
@@ -48,7 +48,7 @@ const RoomAllocation = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/management/rooms/allocate",
+        "https://hcl-system.onrender.com/api/management/rooms/allocate",
         {
           method: "POST",
           headers: {

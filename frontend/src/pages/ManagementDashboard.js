@@ -21,7 +21,7 @@ const ManagementDashboard = () => {
   const fetchDashboardData = useCallback(async () => {
     try {
       const response = await fetch(
-        "http://localhost:5000/api/management/dashboard/summary"
+        "https://hcl-system.onrender.com/api/management/dashboard/summary"
       );
       const data = await response.json();
 

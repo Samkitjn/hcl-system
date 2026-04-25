@@ -10,7 +10,7 @@ const MaintenanceManagement = () => {
   const fetchRequests = useCallback(async () => {
     try {
       const response = await fetch(
-        "http://localhost:5000/api/management/maintenance"
+        "https://hcl-system.onrender.com/api/management/maintenance"
       );
       const data = await response.json();
 
