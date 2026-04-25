@@ -17,7 +17,7 @@ const Room = () => {
   const fetchMyRoom = async () => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/room/my-room/${user.id}`
+        `https://hcl-system.onrender.com/api/room/my-room/${user.id}`
       );
       const data = await response.json();
 

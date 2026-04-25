@@ -33,7 +33,7 @@ const Mess = () => {
   const fetchCharges = useCallback(async () => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/mess/charges/${user.id}`
+        `https://hcl-system.onrender.com/api/mess/charges/${user.id}`
       );
       const data = await response.json();
 

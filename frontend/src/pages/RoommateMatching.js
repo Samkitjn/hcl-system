@@ -20,7 +20,7 @@ const RoommateMatching = () => {
   const fetchMatches = useCallback(async () => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/roommate/matches/${user.id}`
+        `https://hcl-system.onrender.com/api/roommate/matches/${user.id}`
       );
       const data = await response.json();
 

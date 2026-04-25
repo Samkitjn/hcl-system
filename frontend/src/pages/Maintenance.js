@@ -17,7 +17,7 @@ const Maintenance = () => {
   const fetchRequests = useCallback(async () => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/maintenance/student/${user.id}`
+        `https://hcl-system.onrender.com/api/maintenance/student/${user.id}`
       );
       const data = await response.json();
 

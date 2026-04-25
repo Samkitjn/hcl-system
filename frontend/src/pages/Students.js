@@ -29,7 +29,7 @@ const Students = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/management/students/approve/${id}`,
+        `https://hcl-system.onrender.com/api/management/students/approve/${id}`,
         {
           method: "PUT",
         }

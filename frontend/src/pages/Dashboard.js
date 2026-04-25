@@ -17,10 +17,10 @@ const Dashboard = () => {
     try {
       const [roomRes, chargesRes, leavesRes, maintenanceRes] =
         await Promise.all([
-          fetch(`http://localhost:5000/api/room/my-room/${user.id}`),
-          fetch(`http://localhost:5000/api/mess/charges/${user.id}`),
-          fetch(`http://localhost:5000/api/leave/student/${user.id}`),
-          fetch(`http://localhost:5000/api/maintenance/student/${user.id}`),
+          fetch(`https://hcl-system.onrender.com/api/room/my-room/${user.id}`),
+          fetch(`https://hcl-system.onrender.com/api/mess/charges/${user.id}`),
+          fetch(`https://hcl-system.onrender.com/api/leave/student/${user.id}`),
+          fetch(`https://hcl-system.onrender.com/api/maintenance/student/${user.id}`),
         ]);
 
       const roomData = await roomRes.json();

@@ -18,7 +18,7 @@ const Leave = () => {
   const fetchLeaves = useCallback(async () => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/leave/student/${user.id}`
+        `https://hcl-system.onrender.com/api/leave/student/${user.id}`
       );
       const data = await response.json();
 

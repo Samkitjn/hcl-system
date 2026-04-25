@@ -27,7 +27,7 @@ const LeaveManagement = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/management/leave/${id}`,
+        `https://hcl-system.onrender.com/api/management/leave/${id}`,
         {
           method: "PUT",
           headers: {

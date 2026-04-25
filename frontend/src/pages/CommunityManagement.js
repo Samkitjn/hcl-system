@@ -74,7 +74,7 @@ const CommunityManagement = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/management/community/${id}`,
+        `https://hcl-system.onrender.com/api/management/community/${id}`,
         {
           method: "DELETE",
         }
